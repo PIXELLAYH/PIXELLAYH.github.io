@@ -1,233 +1,148 @@
-<!doctype html>
-<html lang="ar" dir="rtl">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Studio CGI — تصميم 3D و CGI</title>
-  <meta name="description" content="استوديو متخصص في 3D Visualization, CGI, ونماذج 3D قابلة للطباعة. خدمات موجهة لمتاجر وشركات الخليج." />
-
-  <!-- Structured data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Studio CGI",
-    "url": "https://yourusername.github.io/",
-    "logo": "logo.png"
-  }
-  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CGI Studio</title>
 
   <style>
-    /* Reset & basics */
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; color:#111}
-
-    /* *** خلفية الفيديو أول الصفحة *** */
-    .bg-video{
-      position:fixed;
-      inset:0;
-      z-index:-2;
-      overflow:hidden;
-    }
-    .bg-video video{
-      position:absolute;
-      left:50%;
-      top:50%;
-      transform:translate(-50%,-50%);
-      min-width:100%;
-      min-height:100%;
-      width:auto;
-      height:auto;
-      object-fit:cover;
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff;
+      color: #000;
     }
 
-    /* *** إزالة الشاشة السوداء — overlay شفاف بسيط فقط *** */
-    .bg-overlay{
-      position:fixed;
-      inset:0;
-      background:linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0));
-      z-index:-1;
+    /* HERO SECTION WITH VIDEO */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
     }
 
-    /* Header / Nav */
-    header{
-      position:fixed;top:0;left:0;right:0;
-      display:flex;justify-content:space-between;align-items:center;
-      padding:16px 28px;z-index:10;
+    .hero video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      z-index: -1;
     }
-    .logo img{height:48px;display:block}
-    nav ul{list-style:none;margin:0;padding:0;display:flex;gap:18px;align-items:center}
-    nav a{color:#fff;text-decoration:none;font-weight:600;padding:8px 12px;border-radius:8px;transition:background .18s}
-    nav a:hover{background:rgba(255,255,255,0.1)}
 
-    /* Hero */
-    .hero{
-      min-height:100vh;
-      display:flex;align-items:center;justify-content:center;
-      padding:120px 20px 60px;
-      text-align:center;
-      color:#fff;
+    /* LOGO */
+    .logo {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 22px;
+      font-weight: bold;
+      color: white;
+      z-index: 10;
     }
-    .hero-card{max-width:980px}
-    .hero h1{font-size:clamp(28px,6vw,56px);margin:0 0 14px;line-height:1.05}
-    .hero p{font-size:clamp(14px,2.4vw,20px);margin:0 0 20px;color:rgba(255,255,255,0.9)}
-    .cta{display:inline-flex;gap:12px}
-    .btn{
-      background:#25D366;color:#fff;padding:12px 18px;border-radius:10px;
-      text-decoration:none;font-weight:700;box-shadow:0 8px 30px rgba(37,211,102,0.12)
+
+    /* TOP MENU */
+    .top-menu {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      display: flex;
+      gap: 20px;
+      z-index: 10;
     }
-    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.2)}
 
-    /* *** بعد السكروول — الخلفية بيضاء *** */
-    section{padding:80px 20px;background:#fff}
-    .container{max-width:1100px;margin:0 auto;color:#111}
+    .top-menu a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+    }
 
-    .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-    .service{background:#f9f9f9;padding:18px;border-radius:12px}
-    .service h3{margin:8px 0}
+    /* CONTENT SECTIONS */
+    section {
+      padding: 80px 40px;
+      max-width: 900px;
+      margin: auto;
+    }
 
-    .clients{display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:center}
-    .client{width:140px;height:70px;display:flex;align-items:center;justify-content:center;background:#eee;border-radius:8px;padding:8px}
-    .client img{max-width:100%;max-height:100%;object-fit:contain}
+    h2 {
+      margin-bottom: 20px;
+    }
 
-    .why{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+    .logos {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+    }
 
-    .story{background:#f5f5f5;padding:20px;border-radius:12px}
-
-    footer{padding:28px;text-align:center;color:#666;background:#fff}
-
-    @media (max-width:900px){
-      header{padding:12px}
-      .hero{padding-top:100px}
-      .why{grid-template-columns:1fr}
+    .logos img {
+      width: 120px;
+      opacity: 0.8;
     }
   </style>
 </head>
+
 <body>
 
-  <!-- ===== خلفية الفيديو ===== -->
-  <div class="bg-video" aria-hidden="true">
+  <!-- HERO WITH VIDEO -->
+  <div class="hero">
     <video autoplay muted loop playsinline>
       <source src="background.mp4" type="video/mp4">
     </video>
-  </div>
-  <div class="bg-overlay" aria-hidden="true"></div>
 
-  <!-- Header -->
-  <header>
-    <nav aria-label="Main navigation">
-      <ul>
-        <li><a href="#services">خدماتنا</a></li>
-        <li><a href="#clients">عملاؤنا</a></li>
-        <li><a href="#why">لماذا نحن</a></li>
-        <li><a href="#story">قصتي</a></li>
-        <li><a href="#contact">اتصل بنا</a></li>
-      </ul>
-    </nav>
+    <div class="logo">CGI Studio</div>
 
-    <div class="logo">
-      <img src="logo.png" alt="لوغو الاستوديو">
+    <div class="top-menu">
+      <a href="#contact">Contact Us</a>
+      <a href="#services">Services</a>
     </div>
-  </header>
+  </div>
 
-  <!-- Hero -->
-  <main>
-    <section class="hero">
-      <div class="hero-card container">
-        <h1>تصميم 3D احترافي و CGI للمتاجر والإعلانات</h1>
-        <p>تحويل المنتجات والأفكار إلى صور ومقاطع 3D واقعية جاهزة للمتاجر والإعلانات.</p>
-        <div class="cta">
-          <a class="btn" href="https://wa.me/201234567890">تواصل عبر واتساب</a>
-          <a class="btn secondary" href="#services">اطلع على خدماتنا</a>
-        </div>
-      </div>
-    </section>
+  <!-- SERVICES SECTION -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <p>
+      • 3D Visualization  
+      • CGI  
+      • 3D Printable Sculptures & Monument Models
+    </p>
+  </section>
 
-    <!-- Services -->
-    <section id="services">
-      <div class="container">
-        <h2>خدماتنا</h2>
-        <div class="services">
-          <div class="service">
-            <h3>3D Visualization</h3>
-            <p>تصاميم فوتوريالية للمنتجات والإعلانات.</p>
-          </div>
-          <div class="service">
-            <h3>CGI & Motion</h3>
-            <p>مشاهد CGI بجودة سينمائية.</p>
-          </div>
-          <div class="service">
-            <h3>3D Printing Models</h3>
-            <p>نماذج جاهزة للطباعة ثلاثية الأبعاد.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <!-- CLIENT LOGOS -->
+  <section>
+    <h2>Companies we’ve worked with</h2>
+    <div class="logos">
+      <img src="logo1.png">
+      <img src="logo2.png">
+      <img src="logo3.png">
+    </div>
+  </section>
 
-    <!-- Clients -->
-    <section id="clients">
-      <div class="container">
-        <h2>شركات تعاملنا معها</h2>
-        <div class="clients">
-          <div class="client"><img src="logo.png"></div>
-          <div class="client"><img src="logo.png"></div>
-          <div class="client"><img src="logo.png"></div>
-        </div>
-      </div>
-    </section>
+  <!-- WHY US -->
+  <section>
+    <h2>Why Choose Us?</h2>
+    <p>We deliver high-end CGI, realistic renders, and fast turnaround for store owners and companies in Saudi Arabia.</p>
+  </section>
 
-    <!-- Why us -->
-    <section id="why">
-      <div class="container">
-        <h2>لماذا نحن؟</h2>
-        <div class="why">
-          <div>
-            <ul>
-              <li>جودة عالية.</li>
-              <li>تسليم سريع.</li>
-              <li>خبرة قوية في السوق الخليجي.</li>
-            </ul>
-          </div>
-          <div>
-            <p>نستخدم أفضل بروتوكولات العمل لضمان نتيجة ممتازة.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <!-- FOUNDER STORY -->
+  <section>
+    <h2>Founder Story</h2>
+    <p>
+      وأنا صغير كنت مهووس بالألعاب الكمبيوتر لأنها كانت قادرة تطلعني من أي أفكار سلبية.  
+      الشيء اللي كان يجذبني فيها هو إنها 3D… وده اللي خلاني أدخل المجال وأبدأ أتعلم وأبدع فيه.
+    </p>
+  </section>
 
-    <!-- Story -->
-    <section id="story">
-      <div class="container">
-        <h2>قصتي</h2>
-        <div class="story">
-          <p>كنت مهووس بألعاب الكمبيوتر وأثار انتباهي عالم الـ3D… ومن هنا بدأت رحلتي.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" style="background:#fff">
-      <div class="container">
-        <h2>اتصل بنا</h2>
-        <p>البريد: info@studio.com</p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    © <span id="year"></span> Studio CGI — All rights reserved
-  </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click',function(e){
-        e.preventDefault();
-        const t=document.querySelector(this.getAttribute('href'));
-        if(t) t.scrollIntoView({behavior:'smooth'});
-      })
-    });
-  </script>
+  <!-- CTA -->
+  <section id="contact">
+    <h2>Ready to work together?</h2>
+    <p>Contact us on WhatsApp and let’s create something amazing.</p>
+  </section>
 
 </body>
 </html>
