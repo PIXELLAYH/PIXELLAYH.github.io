@@ -1,148 +1,111 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CGI Studio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Studio CGI — تصميم 3D و CGI</title>
+  <meta name="description" content="استوديو متخصص في 3D Visualization, CGI, ونماذج 3D قابلة للطباعة. خدمات موجهة لمتاجر وشركات الخليج." />
 
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #fff;
-      color: #000;
-    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter, system-ui; background:#000;color:#111}
+    a{color:inherit}
 
-    /* HERO SECTION WITH VIDEO */
-    .hero {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-    }
+    /* Background video only for first section */
+    .bg-video{position:fixed;inset:0;z-index:-2;overflow:hidden;}
+    .bg-video video{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);min-width:100%;min-height:100%;object-fit:cover}
+    .bg-overlay{position:fixed;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.5));z-index:-1}
 
-    .hero video {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      min-width: 100%;
-      min-height: 100%;
-      width: auto;
-      height: auto;
-      transform: translate(-50%, -50%);
-      object-fit: cover;
-      z-index: -1;
-    }
+    header{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:16px 28px;z-index:10}
+    .logo img{height:48px}
+    nav ul{list-style:none;display:flex;gap:18px;margin:0;padding:0}
+    nav a{color:#fff;text-decoration:none;font-weight:600;padding:8px 12px;border-radius:8px;transition:background .18s}
+    nav a:hover{background:rgba(255,255,255,0.08)}
 
-    /* LOGO */
-    .logo {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 22px;
-      font-weight: bold;
-      color: white;
-      z-index: 10;
-    }
+    /* Hero keeps video background */
+    .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:120px 20px;color:#fff;text-align:center}
 
-    /* TOP MENU */
-    .top-menu {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      display: flex;
-      gap: 20px;
-      z-index: 10;
-    }
+    /* After hero → normal white background */
+    .after-hero section{background:#fff;color:#000}
+    section{padding:80px 20px}
+    .container{max-width:1100px;margin:auto}
 
-    .top-menu a {
-      color: white;
-      text-decoration: none;
-      font-size: 18px;
-    }
+    h2{margin-top:0}
 
-    /* CONTENT SECTIONS */
-    section {
-      padding: 80px 40px;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    h2 {
-      margin-bottom: 20px;
-    }
-
-    .logos {
-      display: flex;
-      gap: 30px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 20px;
-    }
-
-    .logos img {
-      width: 120px;
-      opacity: 0.8;
-    }
+    @media(max-width:900px){header{padding:12px}}
   </style>
 </head>
-
 <body>
 
-  <!-- HERO WITH VIDEO -->
-  <div class="hero">
+  <!-- Background video behind only the first screen -->
+  <div class="bg-video" aria-hidden="true">
     <video autoplay muted loop playsinline>
       <source src="background.mp4" type="video/mp4">
     </video>
-
-    <div class="logo">CGI Studio</div>
-
-    <div class="top-menu">
-      <a href="#contact">Contact Us</a>
-      <a href="#services">Services</a>
-    </div>
   </div>
+  <div class="bg-overlay" aria-hidden="true"></div>
 
-  <!-- SERVICES SECTION -->
-  <section id="services">
-    <h2>Our Services</h2>
-    <p>
-      • 3D Visualization  
-      • CGI  
-      • 3D Printable Sculptures & Monument Models
-    </p>
-  </section>
+  <!-- Header -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#services">خدماتنا</a></li>
+        <li><a href="#clients">عملاؤنا</a></li>
+        <li><a href="#why">لماذا نحن</a></li>
+        <li><a href="#story">قصتي</a></li>
+        <li><a href="#contact">اتصل بنا</a></li>
+      </ul>
+    </nav>
+    <div class="logo"><img src="logo.png" alt="Logo"></div>
+  </header>
 
-  <!-- CLIENT LOGOS -->
-  <section>
-    <h2>Companies we’ve worked with</h2>
-    <div class="logos">
-      <img src="logo1.png">
-      <img src="logo2.png">
-      <img src="logo3.png">
+  <!-- HERO with video background -->
+  <section class="hero">
+    <div class="container">
+      <h1>تصميم 3D احترافي و CGI</h1>
+      <p>تحويل المنتجات والأفكار إلى صور ومقاطع 3D واقعية.</p>
     </div>
   </section>
 
-  <!-- WHY US -->
-  <section>
-    <h2>Why Choose Us?</h2>
-    <p>We deliver high-end CGI, realistic renders, and fast turnaround for store owners and companies in Saudi Arabia.</p>
+  <!-- Everything after hero → white background -->
+  <div class="after-hero">
+
+  <section id="services">
+    <div class="container">
+      <h2>خدماتنا</h2>
+      <p>… محتوى الخدمات …</p>
+    </div>
   </section>
 
-  <!-- FOUNDER STORY -->
-  <section>
-    <h2>Founder Story</h2>
-    <p>
-      وأنا صغير كنت مهووس بالألعاب الكمبيوتر لأنها كانت قادرة تطلعني من أي أفكار سلبية.  
-      الشيء اللي كان يجذبني فيها هو إنها 3D… وده اللي خلاني أدخل المجال وأبدأ أتعلم وأبدع فيه.
-    </p>
+  <section id="clients">
+    <div class="container">
+      <h2>عملاؤنا</h2>
+      <p>… logos …</p>
+    </div>
   </section>
 
-  <!-- CTA -->
+  <section id="why">
+    <div class="container">
+      <h2>لماذا نحن</h2>
+      <p>… النص …</p>
+    </div>
+  </section>
+
+  <section id="story">
+    <div class="container">
+      <h2>قصتي</h2>
+      <p>… القصة …</p>
+    </div>
+  </section>
+
   <section id="contact">
-    <h2>Ready to work together?</h2>
-    <p>Contact us on WhatsApp and let’s create something amazing.</p>
+    <div class="container">
+      <h2>اتصل بنا</h2>
+      <p>… info …</p>
+    </div>
   </section>
+
+  </div>
 
 </body>
 </html>
