@@ -13,62 +13,89 @@
     "@type": "Organization",
     "name": "Studio CGI",
     "url": "https://yourusername.github.io/",
-    "logo": "sandbox:/mnt/data/fffffftyrtyrtyr.PNG"
+    "logo": "logo.png"
   }
   </script>
 
   <style>
     /* Reset & basics */
     *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:#000;color:#111}
-    a{color:inherit}
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; color:#111}
 
-    /* Background video */
-    .bg-video{position:fixed;inset:0;z-index:-2;overflow:hidden}
-    .bg-video video{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);min-width:100%;min-height:100%;width:auto;height:auto;object-fit:cover}
-    .bg-overlay{position:fixed;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.5));z-index:-1}
+    /* *** خلفية الفيديو أول الصفحة *** */
+    .bg-video{
+      position:fixed;
+      inset:0;
+      z-index:-2;
+      overflow:hidden;
+    }
+    .bg-video video{
+      position:absolute;
+      left:50%;
+      top:50%;
+      transform:translate(-50%,-50%);
+      min-width:100%;
+      min-height:100%;
+      width:auto;
+      height:auto;
+      object-fit:cover;
+    }
+
+    /* *** إزالة الشاشة السوداء — overlay شفاف بسيط فقط *** */
+    .bg-overlay{
+      position:fixed;
+      inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0));
+      z-index:-1;
+    }
 
     /* Header / Nav */
-    header{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:16px 28px;z-index:10}
+    header{
+      position:fixed;top:0;left:0;right:0;
+      display:flex;justify-content:space-between;align-items:center;
+      padding:16px 28px;z-index:10;
+    }
     .logo img{height:48px;display:block}
     nav ul{list-style:none;margin:0;padding:0;display:flex;gap:18px;align-items:center}
     nav a{color:#fff;text-decoration:none;font-weight:600;padding:8px 12px;border-radius:8px;transition:background .18s}
-    nav a:hover{background:rgba(255,255,255,0.06)}
+    nav a:hover{background:rgba(255,255,255,0.1)}
 
     /* Hero */
-    .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:120px 20px 60px;text-align:center}
-    .hero-card{max-width:980px;color:#fff}
+    .hero{
+      min-height:100vh;
+      display:flex;align-items:center;justify-content:center;
+      padding:120px 20px 60px;
+      text-align:center;
+      color:#fff;
+    }
+    .hero-card{max-width:980px}
     .hero h1{font-size:clamp(28px,6vw,56px);margin:0 0 14px;line-height:1.05}
     .hero p{font-size:clamp(14px,2.4vw,20px);margin:0 0 20px;color:rgba(255,255,255,0.9)}
     .cta{display:inline-flex;gap:12px}
-    .btn{background:#25D366;color:#fff;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:700;box-shadow:0 8px 30px rgba(37,211,102,0.12)}
-    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.12)}
+    .btn{
+      background:#25D366;color:#fff;padding:12px 18px;border-radius:10px;
+      text-decoration:none;font-weight:700;box-shadow:0 8px 30px rgba(37,211,102,0.12)
+    }
+    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.2)}
 
-    /* Sections */
-    section{padding:80px 20px}
-    .container{max-width:1100px;margin:0 auto}
+    /* *** بعد السكروول — الخلفية بيضاء *** */
+    section{padding:80px 20px;background:#fff}
+    .container{max-width:1100px;margin:0 auto;color:#111}
 
-    /* Services */
     .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-    .service{background:rgba(255,255,255,0.03);padding:18px;border-radius:12px;color:#fff}
+    .service{background:#f9f9f9;padding:18px;border-radius:12px}
     .service h3{margin:8px 0}
-    .service p{color:rgba(255,255,255,0.8)}
 
-    /* Clients */
     .clients{display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:center}
-    .client{width:140px;height:70px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.02);border-radius:8px;padding:8px}
+    .client{width:140px;height:70px;display:flex;align-items:center;justify-content:center;background:#eee;border-radius:8px;padding:8px}
     .client img{max-width:100%;max-height:100%;object-fit:contain}
 
-    /* Why us */
     .why{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
 
-    /* Founder story */
-    .story{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:20px;border-radius:12px;color:#fff}
+    .story{background:#f5f5f5;padding:20px;border-radius:12px}
 
-    /* Footer */
-    footer{padding:28px;text-align:center;color:rgba(255,255,255,0.6)}
+    footer{padding:28px;text-align:center;color:#666;background:#fff}
 
-    /* Responsive */
     @media (max-width:900px){
       header{padding:12px}
       .hero{padding-top:100px}
@@ -78,11 +105,10 @@
 </head>
 <body>
 
-  <!-- Background video: استبدل background.mp4 بملف الفيديو في الريبو -->
+  <!-- ===== خلفية الفيديو ===== -->
   <div class="bg-video" aria-hidden="true">
-    <video autoplay muted loop playsinline poster="sandbox:/mnt/data/fffffftyrtyrtyr.PNG">
+    <video autoplay muted loop playsinline>
       <source src="background.mp4" type="video/mp4">
-      <!-- لو عندك webm أضفه هنا -->
     </video>
   </div>
   <div class="bg-overlay" aria-hidden="true"></div>
@@ -100,8 +126,7 @@
     </nav>
 
     <div class="logo">
-      <!-- استخدم المسار هذا لشعارك المرفوع -->
-      <img src="sandbox:/mnt/data/fffffftyrtyrtyr.PNG" alt="لوغو الاستوديو">
+      <img src="logo.png" alt="لوغو الاستوديو">
     </div>
   </header>
 
@@ -110,9 +135,9 @@
     <section class="hero">
       <div class="hero-card container">
         <h1>تصميم 3D احترافي و CGI للمتاجر والإعلانات</h1>
-        <p>تحويل المنتجات والأفكار إلى صور ومقاطع 3D واقعية جاهزة للمتاجر، الإعلانات، والطباعة ثلاثية الأبعاد.</p>
+        <p>تحويل المنتجات والأفكار إلى صور ومقاطع 3D واقعية جاهزة للمتاجر والإعلانات.</p>
         <div class="cta">
-          <a class="btn" href="https://wa.me/201234567890?text=مرحبا%20انا%20مهتم%20بخدمة%20CGI">تواصل عبر واتساب</a>
+          <a class="btn" href="https://wa.me/201234567890">تواصل عبر واتساب</a>
           <a class="btn secondary" href="#services">اطلع على خدماتنا</a>
         </div>
       </div>
@@ -121,19 +146,19 @@
     <!-- Services -->
     <section id="services">
       <div class="container">
-        <h2 style="color:#fff">خدماتنا</h2>
+        <h2>خدماتنا</h2>
         <div class="services">
           <div class="service">
             <h3>3D Visualization</h3>
-            <p>تصاميم فوتوريالية للمنتجات، صور للمتاجر، ولقطات للإعلانات عالية الجودة.</p>
+            <p>تصاميم فوتوريالية للمنتجات والإعلانات.</p>
           </div>
           <div class="service">
             <h3>CGI & Motion</h3>
-            <p>مشاهد CGI للحملات الإعلانية، موشن، وعروض منتجات واقعية بجودة سينمائية.</p>
+            <p>مشاهد CGI بجودة سينمائية.</p>
           </div>
           <div class="service">
             <h3>3D Printing Models</h3>
-            <p>نماذج ثلاثية الأبعاد قابلة للطباعة للنُصب، المجسمات التذكارية، والهدايا المخصصة.</p>
+            <p>نماذج جاهزة للطباعة ثلاثية الأبعاد.</p>
           </div>
         </div>
       </div>
@@ -142,13 +167,11 @@
     <!-- Clients -->
     <section id="clients">
       <div class="container">
-        <h2 style="color:#fff">أبرز الشركات التي تعاملنا معها</h2>
-        <div class="clients" aria-hidden="false">
-          <!-- استبدل الصور بالشعارات الحقيقية لشركاتكم -->
-          <div class="client"><img src="sandbox:/mnt/data/fffffftyrtyrtyr.PNG" alt="client logo"></div>
-          <div class="client"><img src="sandbox:/mnt/data/fffffftyrtyrtyr.PNG" alt="client logo"></div>
-          <div class="client"><img src="sandbox:/mnt/data/fffffftyrtyrtyr.PNG" alt="client logo"></div>
-          <div class="client"><img src="sandbox:/mnt/data/fffffftyrtyrtyr.PNG" alt="client logo"></div>
+        <h2>شركات تعاملنا معها</h2>
+        <div class="clients">
+          <div class="client"><img src="logo.png"></div>
+          <div class="client"><img src="logo.png"></div>
+          <div class="client"><img src="logo.png"></div>
         </div>
       </div>
     </section>
@@ -156,50 +179,39 @@
     <!-- Why us -->
     <section id="why">
       <div class="container">
-        <h2 style="color:#fff">لماذا تختارنا؟</h2>
+        <h2>لماذا نحن؟</h2>
         <div class="why">
           <div>
-            <ul style="color:rgba(255,255,255,0.9);line-height:1.8;margin-top:10px">
-              <li>خبرة في تنفيذ مشاهد CGI موجهة للمتاجر والإعلانات.</li>
-              <li>تسليم سريع وجودة عالية تلائم السوق الخليجي.</li>
-              <li>نماذج قابلة للطباعة مع اختبارات الجودة للطباعة ثلاثية الأبعاد.</li>
-              <li>دعم فني بعد التسليم وإمكانية التعديل حسب الملاحظات.</li>
+            <ul>
+              <li>جودة عالية.</li>
+              <li>تسليم سريع.</li>
+              <li>خبرة قوية في السوق الخليجي.</li>
             </ul>
           </div>
           <div>
-            <p style="color:rgba(255,255,255,0.9)">نستخدم أفضل بروتوكولات العمل: مراجعات مرحلية، ملفات مفصلة للتسليم (OBJ/FBX/STL)، ونسلم ملفات جاهزة للطباعة والإنتاج الإعلاني.</p>
+            <p>نستخدم أفضل بروتوكولات العمل لضمان نتيجة ممتازة.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Founder story -->
+    <!-- Story -->
     <section id="story">
       <div class="container">
-        <h2 style="color:#fff">قصتي — لماذا دخلت عالم 3D</h2>
+        <h2>قصتي</h2>
         <div class="story">
-          <p>منذ الصغر كنت مولعًا بألعاب الكمبيوتر — كانت تُخرِجني من أي أفكار سلبية وتجذبني لعوالم ثلاثية الأبعاد. حبّيت تفاصيل العالم ده وبدأت أسأل: إزاي الحاجات دي بتتبني؟ ده خلاّني أتعلم 3D لحد ما تحولت لشغف ومهنة. دلوقتي أقدّم الشغف ده لتحويل منتجاتكم لأعمال بصرية تخطف الأنظار.</p>
+          <p>كنت مهووس بألعاب الكمبيوتر وأثار انتباهي عالم الـ3D… ومن هنا بدأت رحلتي.</p>
         </div>
-      </div>
-    </section>
-
-    <!-- CTA big -->
-    <section style="padding:40px 20px;background:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.6))">
-      <div class="container" style="text-align:center">
-        <h2 style="color:#fff">هل تود تحويل منتجك لعرض 3D مميز؟</h2>
-        <p style="color:rgba(255,255,255,0.9)">ارسل لنا تفاصيل المنتج وسنرسل لك عرض سعر تجريبي.</p>
-        <a class="btn" href="https://wa.me/201234567890?text=أريد%20عرض%20سعر%20لتصميم%203D" style="margin-top:12px">تواصل الآن</a>
       </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact">
+    <section id="contact" style="background:#fff">
       <div class="container">
-        <h2 style="color:#fff">اتصل بنا</h2>
-        <p style="color:rgba(255,255,255,0.9)">البريد: <a href="mailto:info@studio.com">info@studio.com</a> — أو تواصل عبر واتساب.</p>
+        <h2>اتصل بنا</h2>
+        <p>البريد: info@studio.com</p>
       </div>
     </section>
-
   </main>
 
   <footer>
@@ -207,20 +219,15 @@
   </footer>
 
   <script>
-    // small helpers
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // smooth scroll for anchors
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click',function(e){
         e.preventDefault();
-        const t = document.querySelector(this.getAttribute('href'));
-        if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
+        const t=document.querySelector(this.getAttribute('href'));
+        if(t) t.scrollIntoView({behavior:'smooth'});
       })
     });
-
-    // lazy load video on mobile to save bandwidth
-    // if background.mp4 is large, you can replace it with a small looping clip
   </script>
+
 </body>
 </html>
