@@ -140,13 +140,13 @@
 
     .service-text h3 {
       font-size: 30px;
-      font-weight: 700;
-      margin-bottom: 18px; /* مسافة بين العنوان والشرح */
+      font-weight: 700; /* bold */
+      margin-bottom: 18px;
     }
 
     .service-text p {
       font-size: 18px;
-      font-weight: 300; /* خط أرفع */
+      font-weight: 300;
       color: #444;
       line-height: 1.8;
     }
@@ -263,9 +263,9 @@
   <section id="services">
     <h2>الخدمات</h2>
 
-    <!-- CGI -->
-    <div class="service-block" style="flex-direction: row;">
-      <div class="service-text" style="text-align:left;">
+    <!-- CGI (نص يمين، صورة يسار) -->
+    <div class="service-block" style="flex-direction: row-reverse;">
+      <div class="service-text">
         <h3>CGI</h3>
         <p>نحوّل منتجاتك إلى صور واقعية بجودة إعلانية عالية.</p>
       </div>
@@ -274,25 +274,46 @@
       </div>
     </div>
 
-    <!-- 3D Visualization -->
-    <div class="service-block" style="flex-direction: row-reverse;">
-      <div class="service-text" style="text-align:right;">
-        <h3>3D Visualization</h3>
-        <p>نعرض فكرتك بشكل ثلاثي الأبعاد واقعي يساعدك على البيع بسهولة.</p>
-      </div>
+    <!-- 3D Visualization (نص يسار، صورة يمين) -->
+    <div class="service-block">
       <div class="service-img">
         <img src="viz.jpg" alt="">
       </div>
+      <div class="service-text">
+        <h3>3D Visualization</h3>
+        <p>نعرض فكرتك بشكل ثلاثي الأبعاد واقعي يساعدك على البيع بسهولة.</p>
+      </div>
     </div>
 
-    <!-- 3D Printable Sculptures -->
-    <div class="service-block">
+    <!-- 3D Printable Sculptures (ثلاث فقرات) -->
+    <!-- فقرة أولى -->
+    <div class="service-block" style="flex-direction: row-reverse;">
       <div class="service-text">
-        <h3 style="font-weight:bold;">3D Printable Sculptures</h3>
+        <h3>3D Printable Sculptures</h3>
         <p>نماذج جاهزة للطباعة بجودة عالية.</p>
       </div>
       <div class="service-img">
         <img src="print1.jpg">
+      </div>
+    </div>
+    <!-- فقرة ثانية (معكوسة) -->
+    <div class="service-block">
+      <div class="service-img">
+        <img src="print2.jpg">
+      </div>
+      <div class="service-text">
+        <h3>تصميم نحوت قابلة للطباعة</h3>
+        <p>كل التفاصيل مدروسة لتخرج النتيجة بشكل مثالي للطباعة.</p>
+      </div>
+    </div>
+    <!-- فقرة ثالثة -->
+    <div class="service-block" style="flex-direction: row-reverse;">
+      <div class="service-text">
+        <h3>دقة واحترافية</h3>
+        <p>نعتمد على أعلى معايير الجودة في النحت الثلاثي الأبعاد.</p>
+      </div>
+      <div class="service-img">
+        <img src="print3.jpg">
       </div>
     </div>
 
@@ -336,13 +357,12 @@
     document.querySelectorAll('.top-menu a').forEach(link => {
       link.addEventListener('click', e => {
         e.preventDefault();
-        const target = document.querySelector(link.getAttribute('href'));
-        target.scrollIntoView({ behavior: 'smooth' });
+        document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
       });
     });
 
     // FAQ toggle
-    document.querySelectorAll('.faq-item').forEach((item) => {
+    document.querySelectorAll('.faq-item').forEach((item, i) => {
       item.addEventListener('click', () => {
         const ans = item.nextElementSibling;
         ans.style.display = ans.style.display === 'block' ? 'none' : 'block';
