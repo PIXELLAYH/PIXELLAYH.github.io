@@ -45,7 +45,7 @@
       text-decoration: none;
       font-size: 20px;
       font-weight: 500;
-      transition: .3s;
+      transition: 0.3s;
       padding: 6px 10px;
     }
 
@@ -98,26 +98,7 @@
       font-weight: 700;
     }
 
-    /* CLIENT LOGOS */
-    .logos {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 30px;
-      width: 100%;
-      flex-wrap: nowrap;
-    }
-
-    .logos img {
-      width: 160px;
-      transition: .3s;
-    }
-
-    .logos img:hover {
-      transform: scale(1.07);
-    }
-
-    /* NEW WORK VIDEO */
+    /* New Section Video half size */
     .new-section video {
       width: 50%;
       display: block;
@@ -125,11 +106,11 @@
       border-radius: 12px;
     }
 
-    /* SERVICES */
+    /* خدمات بنظام النص + صورة */
     .service-block {
       display: flex;
       align-items: center;
-      gap: 50px;
+      gap: 40px;
       margin-bottom: 80px;
     }
 
@@ -139,16 +120,14 @@
     }
 
     .service-text h3 {
-      font-size: 30px;
-      font-weight: 700;
-      margin-bottom: 18px; /* مسافة بين العنوان والشرح */
+      font-size: 28px;
+      margin-bottom: 15px;
     }
 
     .service-text p {
       font-size: 18px;
-      font-weight: 300; /* خط أرفع */
-      color: #444;
       line-height: 1.8;
+      color: #444;
     }
 
     .service-img {
@@ -162,6 +141,10 @@
     }
 
     /* FAQ */
+    .faq {
+      text-align: right;
+    }
+
     .faq-item {
       background: #f7f7f7;
       padding: 15px 20px;
@@ -170,19 +153,17 @@
       cursor: pointer;
       font-size: 20px;
       font-weight: 600;
-      text-align: right;
     }
 
     .faq-answer {
       display: none;
-      padding: 10px 20px 20px;
+      padding: 10px 20px 20px 20px;
       background: #fff;
       border-radius: 0 0 8px 8px;
       font-size: 17px;
       color: #444;
       line-height: 1.7;
       border-top: 1px solid #ddd;
-      text-align: right;
     }
 
     footer {
@@ -193,7 +174,7 @@
       color: #444;
     }
 
-    /* WhatsApp Button */
+    /* زر الواتساب */
     .whatsapp-btn {
       position: fixed;
       bottom: 25px;
@@ -236,20 +217,6 @@
     <div class="hero-text">تصميمات CGI و 3D Visualization بجودة واقعية وفخمة لمنتجاتك</div>
   </div>
 
-  <!-- CLIENT LOGOS (رجّعناه هنا مثل الأول) -->
-  <section>
-    <h2>شركات وثقت في أعمالنا</h2>
-    <div class="logos">
-      <img src="logo1.png">
-      <img src="logo2.png">
-      <img src="logo3.png">
-      <img src="logo4.png">
-      <img src="logo5.png">
-      <img src="logo6.png">
-      <img src="logo7.png">
-    </div>
-  </section>
-
   <!-- NEW WORK -->
   <section class="new-section">
     <h2>عمل جديد</h2>
@@ -265,7 +232,7 @@
 
     <!-- CGI -->
     <div class="service-block">
-      <div class="service-text">
+      <div class="service-text" style="text-align:left;">
         <h3>CGI</h3>
         <p>نحوّل منتجاتك إلى صور واقعية بجودة إعلانية عالية.</p>
       </div>
@@ -275,8 +242,8 @@
     </div>
 
     <!-- 3D Visualization -->
-    <div class="service-block">
-      <div class="service-text">
+    <div class="service-block" style="flex-direction: row-reverse;">
+      <div class="service-text" style="text-align:right;">
         <h3>3D Visualization</h3>
         <p>نعرض فكرتك بشكل ثلاثي الأبعاد واقعي يساعدك على البيع بسهولة.</p>
       </div>
@@ -285,10 +252,10 @@
       </div>
     </div>
 
-    <!-- 3D Printable Sculptures – ثلاث فقرات -->
+    <!-- 3D Printable Sculptures -->
     <div class="service-block">
       <div class="service-text">
-        <h3>3D Printable Sculptures</h3>
+        <h3 style="font-weight:bold;">3D Printable Sculptures</h3>
         <p>نماذج جاهزة للطباعة بجودة عالية.</p>
       </div>
       <div class="service-img">
@@ -296,27 +263,6 @@
       </div>
     </div>
 
-    <!-- فقرة معكوسة -->
-    <div class="service-block" style="flex-direction: row-reverse;">
-      <div class="service-text">
-        <h3>تصميم نحوت قابلة للطباعة</h3>
-        <p>كل التفاصيل مدروسة لتخرج النتيجة بشكل مثالي للطباعة.</p>
-      </div>
-      <div class="service-img">
-        <img src="print2.jpg">
-      </div>
-    </div>
-
-    <!-- فقرة ثالثة -->
-    <div class="service-block">
-      <div class="service-text">
-        <h3>دقة واحترافية</h3>
-        <p>نعتمد على أعلى معايير الجودة في النحت الثلاثي الأبعاد.</p>
-      </div>
-      <div class="service-img">
-        <img src="print3.jpg">
-      </div>
-    </div>
   </section>
 
   <!-- STORY -->
@@ -353,7 +299,17 @@
   </a>
 
   <script>
-    document.querySelectorAll('.faq-item').forEach((item, i) => {
+    // Smooth scroll للقائمة العلوية
+    document.querySelectorAll('.top-menu a').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // FAQ toggle
+    document.querySelectorAll('.faq-item').forEach((item) => {
       item.addEventListener('click', () => {
         const ans = item.nextElementSibling;
         ans.style.display = ans.style.display === 'block' ? 'none' : 'block';
