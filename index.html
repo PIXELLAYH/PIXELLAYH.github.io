@@ -5,15 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>استوديو CGI — تصميم ثلاثي الأبعاد احترافي</title>
 
-  <!-- SEO تحسين -->
-  <meta name="description" content="استوديو متخصص في CGI و 3D Visualization — نصمّم صور وفيديوهات ثلاثية الأبعاد واقعية للمنتجات والخدمات، بجودة عالية تناسب المتاجر والشركات في الخليج." />
-  <meta name="keywords" content="CGI, 3D Visualization, تصميم ثلاثي الأبعاد, نمذجة 3D, استوديو CGI, تصميم منتجات, السعودية, الإمارات" />
-  <meta property="og:title" content="استوديو CGI — تصميم ثلاثي الأبعاد احترافي" />
-  <meta property="og:description" content="نعمل على إنتاج CGI و 3D Visualization واقعي وعالي الجودة لمتجرك أو علامتك التجارية." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="cover.jpg" />
-
-  <!-- خط خليجي شائع -->
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
 
   <style>
@@ -21,31 +12,33 @@
       margin: 0;
       font-family: "Tajawal", sans-serif;
       background: #fff;
+      overflow-x: hidden;
       color: #111;
       scroll-behavior: smooth;
-      overflow-x: hidden;
     }
 
     a { cursor: pointer; }
 
-    /* شريط علوي بخلفية شفافة مع ظل تدريجي */
+    /* شريط علوي بخلفية شفافة */
     .top-bar {
       position: absolute;
       top: 0;
       width: 100%;
-      padding: 20px;
+      padding: 20px 40px;
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
+      gap: 25px;
       z-index: 20;
       background: linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0));
     }
 
-    .logo img { height: 55px; width: auto; }
+    .logo img { height: 55px; width: auto; margin-left: 25px; }
 
     .top-menu {
       display: flex;
       gap: 25px;
+      align-items: center;
     }
 
     .top-menu a {
@@ -77,12 +70,9 @@
     .hero video {
       position: absolute;
       top: 50%; left: 50%;
-      min-width: 100%;
-      min-height: 100%;
-      width: auto;
-      height: auto;
-      object-fit: cover;
+      min-width: 100%; min-height: 100%;
       transform: translate(-50%, -50%);
+      object-fit: cover;
       z-index: -1;
     }
 
@@ -113,13 +103,13 @@
     .logos {
       display: flex;
       flex-wrap: wrap;
-      gap: 50px;
+      gap: 40px;
       justify-content: center;
     }
 
     .logos img {
       width: 150px;
-      opacity: 0.9;
+      opacity: 0.95;
       transition: 0.3s;
     }
     .logos img:hover { transform: scale(1.1); }
@@ -142,22 +132,6 @@
       transition: 0.3s;
     }
 
-    .service-box:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 32px rgba(0,0,0,0.18);
-    }
-
-    .service-box h3 { font-size: 24px; margin-bottom: 12px; }
-    .service-box p { font-size: 16px; color: #555; }
-
-    /* قسم الفيديو الجديد */
-    .new-section video {
-      width: 100%;
-      max-height: 600px;
-      border-radius: 12px;
-      margin-bottom: 20px;
-    }
-
     /* فوتر */
     footer {
       background: #ddd;
@@ -167,26 +141,26 @@
       color: #444;
     }
 
-    /* زر الواتساب دائم */
+    /* زر الواتساب */
     .whatsapp-btn {
       position: fixed;
       bottom: 25px;
       right: 25px;
-      background: #25D366;
-      color: white;
       width: 60px;
       height: 60px;
       border-radius: 50%;
+      background: #25D366;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 32px;
-      text-decoration: none;
       box-shadow: 0 4px 20px rgba(0,0,0,0.25);
       z-index: 999;
-      transition: 0.3s;
     }
-    .whatsapp-btn:hover { transform: scale(1.09); }
+
+    .whatsapp-btn img {
+      width: 35px;
+      height: 35px;
+    }
 
   </style>
 </head>
@@ -195,13 +169,7 @@
 
   <!-- TOP BAR -->
   <div class="top-bar">
-    <div class="top-menu">
-      <a href="#contact">تواصل معنا</a>
-      <a href="#services">الخدمات</a>
-      <a href="#story">قصتنا</a>
-    </div>
     <div class="logo"><img src="logo.png" alt="logo"></div>
-  </div>
     <div class="top-menu">
       <a href="#contact">تواصل معنا</a>
       <a href="#services">الخدمات</a>
@@ -226,6 +194,8 @@
       <img src="logo3.png">
       <img src="logo4.png">
       <img src="logo5.png">
+      <img src="logo6.png">
+      <img src="logo7.png">
     </div>
   </section>
 
@@ -248,45 +218,38 @@
     </div>
   </section>
 
-  <!-- STORY -->
   <section id="story">
     <h2>قصتنا</h2>
-    <p>
-      من وأنا صغير وأنا متعلق بالألعاب لأنها كانت بتاخدني لعالم تاني…
-      ودايمًا اللي كان يشدّني فيها هو عالم الـ 3D.
-      ومن هنا بدأت رحلتي في التصميم والإبداع.
-    </p>
+    <p>من وأنا صغير وأنا متعلق بالألعاب لأنها كانت بتاخدني لعالم تاني…</p>
   </section>
 
-  <!-- NEW SECTION -->
   <section class="new-section">
     <h2>عمل جديد</h2>
     <video controls>
       <source src="new-video.mp4" type="video/mp4">
     </video>
-    <p>مشروع حديث يوضح قوة الـ 3D Visualization في إبراز المنتجات بشكل فاخر وجذاب.</p>
+    <p>مشروع حديث يوضح قوة الـ 3D Visualization.</p>
   </section>
 
-  <!-- CTA -->
   <section id="contact">
     <h2>جاهز نبدأ؟</h2>
     <p>تواصل معنا عبر واتساب وخلينا نشتغل على مشروعك القادم.</p>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     © 2026 CGI Studio - pixellayh.com
   </footer>
 
-  <!-- زر واتساب ثابت -->
-  <a class="whatsapp-btn" href="https://wa.me/201006488313" target="_blank">💬</a>
+  <!-- زر الواتساب الحقيقي -->
+  <a class="whatsapp-btn" href="https://wa.me/201006488313" target="_blank">
+    <img src="whatsapp.png" alt="WhatsApp">
+  </a>
 
   <script>
     document.querySelectorAll('.top-menu a').forEach(link => {
       link.addEventListener('click', e => {
         e.preventDefault();
-        const target = document.querySelector(link.getAttribute('href'));
-        target.scrollIntoView({ behavior: 'smooth' });
+        document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
       });
     });
   </script>
