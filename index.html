@@ -102,14 +102,16 @@
     /* شعارات العملاء */
     .logos {
       display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-      justify-content: center;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+      width: 100%;
     }
 
     .logos img {
-      width: 180px;
-      opacity: 0.95;
+      width: 160px;
+      opacity: 1;
       transition: 0.3s;
     }
     .logos img:hover { transform: scale(1.1); }
@@ -164,8 +166,8 @@
 
   .new-section video {
       width: 100%;
-      max-width: 1000px;
       height: auto;
+      max-width: 100%;
       display: block;
       margin: 0 auto 25px auto;
     }
