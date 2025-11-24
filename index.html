@@ -19,6 +19,7 @@
 
     a { cursor: pointer; }
 
+    /* شريط علوي بخلفية شفافة */
     .top-bar {
       position: absolute;
       top: 0;
@@ -45,7 +46,7 @@
       text-decoration: none;
       font-size: 20px;
       font-weight: 500;
-      transition: .3s;
+      transition: 0.3s;
       padding: 6px 10px;
     }
 
@@ -79,9 +80,9 @@
       color: #fff;
       font-size: 38px;
       font-weight: 700;
+      line-height: 1.5;
       text-shadow: 2px 2px 12px rgba(0,0,0,0.55);
       max-width: 80%;
-      line-height: 1.5;
     }
 
     section {
@@ -98,93 +99,42 @@
       font-weight: 700;
     }
 
-    /* CLIENT LOGOS */
+    /* شعارات العملاء */
     .logos {
       display: flex;
+      flex-wrap: nowrap;
       justify-content: space-between;
       align-items: center;
       gap: 30px;
       width: 100%;
-      flex-wrap: nowrap;
     }
 
     .logos img {
       width: 160px;
-      transition: .3s;
+      opacity: 1;
+      transition: 0.3s;
     }
+    .logos img:hover { transform: scale(1.1); }
 
-    .logos img:hover {
-      transform: scale(1.07);
-    }
-
-    /* NEW WORK VIDEO */
-    .new-section video {
-      width: 50%;
-      display: block;
-      margin: 0 auto 25px auto;
-      border-radius: 12px;
-    }
-
-    /* SERVICES */
-    .service-block {
+    /* الخدمات */
+    .services-container {
       display: flex;
-      align-items: center;
-      gap: 50px;
-      margin-bottom: 80px;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
     }
 
-    .service-text {
-      flex: 1;
-      text-align: right;
+    .service-box {
+      border: 1px solid #ccc;
+      border-radius: 14px;
+      padding: 30px 20px;
+      flex: 1 1 260px;
+      background: linear-gradient(145deg, #f9f9f9, #ececec);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+      transition: 0.3s;
     }
 
-    .service-text h3 {
-      font-size: 30px;
-      font-weight: 700; /* bold */
-      margin-bottom: 18px;
-    }
-
-    .service-text p {
-      font-size: 18px;
-      font-weight: 300;
-      color: #444;
-      line-height: 1.8;
-    }
-
-    .service-img {
-      flex: 1;
-    }
-
-    .service-img img {
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    }
-
-    /* FAQ */
-    .faq-item {
-      background: #f7f7f7;
-      padding: 15px 20px;
-      margin-bottom: 12px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 20px;
-      font-weight: 600;
-      text-align: right;
-    }
-
-    .faq-answer {
-      display: none;
-      padding: 10px 20px 20px;
-      background: #fff;
-      border-radius: 0 0 8px 8px;
-      font-size: 17px;
-      color: #444;
-      line-height: 1.7;
-      border-top: 1px solid #ddd;
-      text-align: right;
-    }
-
+    /* فوتر */
     footer {
       background: #ddd;
       padding: 20px;
@@ -193,7 +143,7 @@
       color: #444;
     }
 
-    /* WhatsApp Button */
+    /* زر الواتساب */
     .whatsapp-btn {
       position: fixed;
       bottom: 25px;
@@ -213,7 +163,15 @@
       width: 35px;
       height: 35px;
     }
-  </style>
+
+  .new-section video {
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      display: block;
+      margin: 0 auto 25px auto;
+    }
+</style>
 </head>
 
 <body>
@@ -228,7 +186,7 @@
     </div>
   </div>
 
-  <!-- HERO -->
+  <!-- HERO SECTION -->
   <div class="hero">
     <video autoplay muted loop playsinline>
       <source src="background.mp4" type="video/mp4">
@@ -250,93 +208,36 @@
     </div>
   </section>
 
-  <!-- NEW WORK -->
+  <!-- SERVICES -->
+  <section id="services">
+    <h2>الخدمات</h2>
+    <div class="services-container">
+      <div class="service-box">
+        <h3>3D Visualization</h3>
+        <p>نحوّل أفكارك ومنتجاتك إلى تصاميم ثلاثية الأبعاد واقعية وجذابة.</p>
+      </div>
+      <div class="service-box">
+        <h3>CGI</h3>
+        <p>إنتاج CGI عالي الجودة لعرض منتجاتك بأفضل صورة.</p>
+      </div>
+      <div class="service-box">
+        <h3>3D Printable Sculptures</h3>
+        <p>نماذج ومنحوتات قابلة للطباعة ثلاثية الأبعاد لمشاريعك.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="story">
+    <h2>قصتنا</h2>
+    <p>من وأنا صغير وأنا متعلق بالألعاب لأنها كانت بتاخدني لعالم تاني…</p>
+  </section>
+
   <section class="new-section">
     <h2>عمل جديد</h2>
     <video controls>
       <source src="new-video.mp4" type="video/mp4">
     </video>
     <p>مشروع حديث يوضح قوة الـ 3D Visualization.</p>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="services">
-    <h2>الخدمات</h2>
-
-    <!-- CGI (نص يمين، صورة يسار) -->
-    <div class="service-block" style="flex-direction: row-reverse;">
-      <div class="service-text">
-        <h3>CGI</h3>
-        <p>نحوّل منتجاتك إلى صور واقعية بجودة إعلانية عالية.</p>
-      </div>
-      <div class="service-img">
-        <img src="cgi.jpg" alt="">
-      </div>
-    </div>
-
-    <!-- 3D Visualization (نص يسار، صورة يمين) -->
-    <div class="service-block">
-      <div class="service-img">
-        <img src="viz.jpg" alt="">
-      </div>
-      <div class="service-text">
-        <h3>3D Visualization</h3>
-        <p>نعرض فكرتك بشكل ثلاثي الأبعاد واقعي يساعدك على البيع بسهولة.</p>
-      </div>
-    </div>
-
-    <!-- 3D Printable Sculptures (ثلاث فقرات) -->
-    <!-- فقرة أولى -->
-    <div class="service-block" style="flex-direction: row-reverse;">
-      <div class="service-text">
-        <h3>3D Printable Sculptures</h3>
-        <p>نماذج جاهزة للطباعة بجودة عالية.</p>
-      </div>
-      <div class="service-img">
-        <img src="print1.jpg">
-      </div>
-    </div>
-    <!-- فقرة ثانية (معكوسة) -->
-    <div class="service-block">
-      <div class="service-img">
-        <img src="print2.jpg">
-      </div>
-      <div class="service-text">
-        <h3>تصميم نحوت قابلة للطباعة</h3>
-        <p>كل التفاصيل مدروسة لتخرج النتيجة بشكل مثالي للطباعة.</p>
-      </div>
-    </div>
-    <!-- فقرة ثالثة -->
-    <div class="service-block" style="flex-direction: row-reverse;">
-      <div class="service-text">
-        <h3>دقة واحترافية</h3>
-        <p>نعتمد على أعلى معايير الجودة في النحت الثلاثي الأبعاد.</p>
-      </div>
-      <div class="service-img">
-        <img src="print3.jpg">
-      </div>
-    </div>
-
-  </section>
-
-  <!-- STORY -->
-  <section id="story">
-    <h2>قصتنا</h2>
-    <p>من وأنا صغير وأنا متعلق بالألعاب لأنها كانت بتاخدني لعالم تاني…</p>
-  </section>
-
-  <!-- FAQ -->
-  <section class="faq">
-    <h2>الأسئلة الشائعة</h2>
-
-    <div class="faq-item">كم يستغرق تنفيذ المشروع؟</div>
-    <div class="faq-answer">عادة من 3 إلى 7 أيام حسب حجم المشروع.</div>
-
-    <div class="faq-item">هل أقدر أطلب تعديلات؟</div>
-    <div class="faq-answer">نعم، التعديل متاح مرتين مجانًا.</div>
-
-    <div class="faq-item">هل تقدمون نماذج جاهزة للطباعة؟</div>
-    <div class="faq-answer">نعم نقدم ملفات STL جاهزة للطباعة.</div>
   </section>
 
   <section id="contact">
@@ -348,24 +249,16 @@
     © 2026 CGI Studio - pixellayh.com
   </footer>
 
+  <!-- زر الواتساب الحقيقي -->
   <a class="whatsapp-btn" href="https://wa.me/201006488313" target="_blank">
     <img src="whatsapp.png" alt="WhatsApp">
   </a>
 
   <script>
-    // Smooth scroll للقائمة العلوية
     document.querySelectorAll('.top-menu a').forEach(link => {
       link.addEventListener('click', e => {
         e.preventDefault();
         document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-
-    // FAQ toggle
-    document.querySelectorAll('.faq-item').forEach((item, i) => {
-      item.addEventListener('click', () => {
-        const ans = item.nextElementSibling;
-        ans.style.display = ans.style.display === 'block' ? 'none' : 'block';
       });
     });
   </script>
