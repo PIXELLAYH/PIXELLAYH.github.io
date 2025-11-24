@@ -19,7 +19,7 @@
 
     a { cursor: pointer; }
 
-    /* شريط علوي بخلفية شفافة */
+    /* شريط علوي */
     .top-bar {
       position: absolute;
       top: 0;
@@ -55,11 +55,11 @@
       border-radius: 6px;
     }
 
-    /* HERO */
+    /* HERO – أصبح نصف الارتفاع */
     .hero {
       position: relative;
       width: 100%;
-      height: 100vh;
+      height: 50vh; /* <–––––– هنا قللنا الفيديو للنصف */
       overflow: hidden;
       display: flex;
       justify-content: center;
@@ -95,7 +95,7 @@
     h2 {
       font-size: 32px;
       color: #222;
-      margin-bottom: 25px;
+      margin-bottom: 35px;
       font-weight: 700;
     }
 
@@ -108,30 +108,72 @@
       gap: 30px;
       width: 100%;
     }
-
     .logos img {
       width: 160px;
-      opacity: 1;
       transition: 0.3s;
     }
     .logos img:hover { transform: scale(1.1); }
 
-    /* الخدمات */
-    .services-container {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 30px;
+    /* ------------------------------------- */
+    /* قسم الخدمات الجديد */
+    /* ------------------------------------- */
+
+    .service-section {
+      margin-bottom: 120px;
     }
 
-    .service-box {
-      border: 1px solid #ccc;
+    .service-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 120px;
+      text-align: right;
+    }
+
+    .service-text {
+      flex: 1;
+    }
+
+    .service-text h3 {
+      font-weight: 700; /* Bold */
+      font-size: 30px;
+      margin-bottom: 18px; /* مسافة رأسية أكبر */
+    }
+
+    .service-text p {
+      font-weight: 300; /* أخف */
+      font-size: 20px;
+      line-height: 1.8;
+    }
+
+    .service-img {
+      flex: 1;
+    }
+
+    .service-img img {
+      width: 100%;
       border-radius: 14px;
-      padding: 30px 20px;
-      flex: 1 1 260px;
-      background: linear-gradient(145deg, #f9f9f9, #ececec);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
-      transition: 0.3s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+
+    /* يسار نص / يمين صورة */
+    .reverse {
+      flex-direction: row-reverse;
+    }
+
+    /* قسم الأسئلة الشائعة */
+    .faq-item {
+      background: #f4f4f4;
+      padding: 25px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      text-align: right;
+    }
+
+    .faq-item h4 {
+      margin-bottom: 10px;
+      font-weight: 700;
     }
 
     /* فوتر */
@@ -164,14 +206,7 @@
       height: 35px;
     }
 
-  .new-section video {
-      width: 100%;
-      height: auto;
-      max-width: 100%;
-      display: block;
-      margin: 0 auto 25px auto;
-    }
-</style>
+  </style>
 </head>
 
 <body>
@@ -186,7 +221,7 @@
     </div>
   </div>
 
-  <!-- HERO SECTION -->
+  <!-- HERO -->
   <div class="hero">
     <video autoplay muted loop playsinline>
       <source src="background.mp4" type="video/mp4">
@@ -208,38 +243,115 @@
     </div>
   </section>
 
-  <!-- SERVICES -->
+  <!-- ----------------------------------------------------- -->
+  <!--   قسم الخدمـات الجديد بالكامل كما طلبت                   -->
+  <!-- ----------------------------------------------------- -->
+
   <section id="services">
     <h2>الخدمات</h2>
-    <div class="services-container">
-      <div class="service-box">
-        <h3>3D Visualization</h3>
-        <p>نحوّل أفكارك ومنتجاتك إلى تصاميم ثلاثية الأبعاد واقعية وجذابة.</p>
-      </div>
-      <div class="service-box">
-        <h3>CGI</h3>
-        <p>إنتاج CGI عالي الجودة لعرض منتجاتك بأفضل صورة.</p>
-      </div>
-      <div class="service-box">
-        <h3>3D Printable Sculptures</h3>
-        <p>نماذج ومنحوتات قابلة للطباعة ثلاثية الأبعاد لمشاريعك.</p>
+
+    <!-- خدمة CGI -->
+    <div class="service-section">
+      <div class="service-row">
+        <div class="service-text">
+          <h3>CGI</h3>
+          <p>نقدم لك لقطات CGI واقعية تبرز المنتج بأعلى جودة ممكنة وتساعدك في البيع والتسويق باحترافية.</p>
+        </div>
+        <div class="service-img">
+          <img src="cgi.jpg" alt="CGI Service">
+        </div>
       </div>
     </div>
+
+    <!-- خدمة Visualization – عكس الأولى -->
+    <div class="service-section">
+      <div class="service-row reverse">
+        <div class="service-text">
+          <h3>3D Visualization</h3>
+          <p>نحوّل المنتج الخاص بك إلى تصميم ثلاثي الأبعاد نابض بالحياة يساعدك على عرضه بشكل جذاب.</p>
+        </div>
+        <div class="service-img">
+          <img src="visualization.jpg" alt="3D Visualization">
+        </div>
+      </div>
+    </div>
+
+    <!-- الخدمة الثالثة – 3 فقرات -->
+    <div class="service-section">
+      <h2 style="text-align:center;margin-bottom:50px;">3D Printable Sculptures</h2>
+
+      <!-- الفقرة 1 -->
+      <div class="service-row">
+        <div class="service-text">
+          <h3>تصميم منحوتات للطباعة</h3>
+          <p>نقدم نماذج قابلة للطباعة بتفاصيل دقيقة مناسبة للطباعة ثلاثية الأبعاد بجودة عالية.</p>
+        </div>
+        <div class="service-img">
+          <img src="sculpt1.jpg" alt="3D Sculpture">
+        </div>
+      </div>
+
+      <!-- الفقرة 2 (عكس) -->
+      <div class="service-row reverse">
+        <div class="service-text">
+          <h3>تصاميم حسب الطلب</h3>
+          <p>نقوم بصناعة مجسمات حسب طلبك بدقة عالية تلائم كل أنواع الطباعة الثلاثية.</p>
+        </div>
+        <div class="service-img">
+          <img src="sculpt2.jpg" alt="3D Custom Sculpture">
+        </div>
+      </div>
+
+      <!-- الفقرة 3 -->
+      <div class="service-row">
+        <div class="service-text">
+          <h3>نماذج جاهزة للطباعة</h3>
+          <p>نوفر لك منحوتات جاهزة للطباعة يمكن استخدامها مباشرة في مشاريعك.</p>
+        </div>
+        <div class="service-img">
+          <img src="sculpt3.jpg" alt="Printable Model">
+        </div>
+      </div>
+    </div>
+
   </section>
 
+  <!-- STORY -->
   <section id="story">
     <h2>قصتنا</h2>
     <p>من وأنا صغير وأنا متعلق بالألعاب لأنها كانت بتاخدني لعالم تاني…</p>
   </section>
 
+  <!-- NEW WORK -->
   <section class="new-section">
     <h2>عمل جديد</h2>
-    <video controls>
+    <video controls style="width:100%;border-radius:14px;">
       <source src="new-video.mp4" type="video/mp4">
     </video>
     <p>مشروع حديث يوضح قوة الـ 3D Visualization.</p>
   </section>
 
+  <!-- FAQ SECTION -->
+  <section>
+    <h2>الأسئلة الشائعة</h2>
+
+    <div class="faq-item">
+      <h4>كم يستغرق تنفيذ المشروع؟</h4>
+      <p>عادة بين 2 إلى 5 أيام حسب حجم المشروع.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4>هل يمكن التعديل بعد التسليم؟</h4>
+      <p>نعم، نوفر تعديلات مجانية بسيطة لضمان رضاك التام.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4>كيف أسلمك المنتج للتصميم؟</h4>
+      <p>يمكنك إرسال صور المنتج أو أبعاده عبر الواتساب.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
   <section id="contact">
     <h2>جاهز نبدأ؟</h2>
     <p>تواصل معنا عبر واتساب وخلينا نشتغل على مشروعك القادم.</p>
@@ -249,7 +361,6 @@
     © 2026 CGI Studio - pixellayh.com
   </footer>
 
-  <!-- زر الواتساب الحقيقي -->
   <a class="whatsapp-btn" href="https://wa.me/201006488313" target="_blank">
     <img src="whatsapp.png" alt="WhatsApp">
   </a>
