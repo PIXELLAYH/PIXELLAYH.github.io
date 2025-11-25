@@ -163,18 +163,35 @@
     }
 
     /* قسم الأسئلة الشائعة */
-    .faq-item {
-      background: #f4f4f4;
-      padding: 25px;
-      margin-bottom: 20px;
-      border-radius: 10px;
-      text-align: right;
-    }
+.faq-item {
+  background: #f4f4f4;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
-    .faq-item h4 {
-      margin-bottom: 10px;
-      font-weight: 700;
-    }
+.faq-question {
+  padding: 20px;
+  font-size: 24px; /* أكبر */
+  font-weight: 700;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  font-size: 20px; /* أكبر */
+  line-height: 1.8;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+  padding: 20px;
+  max-height: 1000px; /* يكفي الإجابة */
+}
+
 
     /* فوتر */
     footer {
@@ -353,44 +370,52 @@
   </section>
 
   <!-- FAQ SECTION -->
-  <section>
-    <h2>الأسئلة الشائعة</h2>
+ <section>
+  <h2>الأسئلة الشائعة</h2>
 
-    <div class="faq-item">
-      <h4>إيش المطلوب مني عشان نبدأ مشروع CGI أو 3D Video Animation؟</h4>
-     <p>بالنسبة للـ CGI عندنا طريقتين:</p>
+  <div class="faq-item">
+    <div class="faq-question">إيش المطلوب مني عشان نبدأ مشروع CGI أو 3D Video Animation؟</div>
+    <div class="faq-answer">
+      <p>بالنسبة للـ CGI عندنا طريقتين:</p>
       <p>**الطريقة الأولى:**</p>
       <p>لو اشتغلنا على فيديو موجود أصلًا مثل تصوير جوي أو فيديو لمكان معيّن، نحتاج فقط:</p>
       <p>1- صور المنتج + أبعاده الأساسية</p>
       <p>2- ملف الملصقات (Labels) الخاصة بالمنتج</p>
       <p>3- شعار البراند</p>
       <p>**الطريقة الثانية:**</p>
-      <p>نطلب منك تصوير محلك بشكل بسيط جدًا بالجوال (iPhone أو أي كاميرا).</p>
+      <p>نطلب منك تصوير محلك بشكل بسيط جدًا بالجوال.</p>
       <p>ونصمّم الفكرة على المكان الحقيقي.</p>
       <p>وغالبًا نشرح لك الطريقة وتكون سهلة جدًا.</p>
-      <p>وأحيانًا ندمج بين الطريقتين — يعني يكون مشهد بكام تصوير جوي ومشهد آخر تصوير عادي للمحل.</p>
+      <p>وأحيانًا ندمج بين الطريقتين — مشهد بطائرة ومشهد تصوير عادي.</p>
     </div>
+  </div>
 
-    <div class="faq-item">
-      <h4>ما عندي فكرة… تقدروا تصنعوا لي فكرة؟</h4>
-     <p>طبعًا، وهذا من أهم نقاط قوتنا:</p>
+  <div class="faq-item">
+    <div class="faq-question">ما عندي فكرة… تقدروا تصنعوا لي فكرة؟</div>
+    <div class="faq-answer">
+      <p>طبعًا، وهذا من أهم نقاط قوتنا:</p>
       <p>1- نرشّح لك أفضل الأفكار اللي نجحت في مجالك.</p>
       <p>2- نصنع فكرة مبدئية في فيديو بدون رندر للتعديلات.</p>
       <p>3- نستخدم الـ AI فقط لتقريب الصورة قبل التنفيذ.</p>
     </div>
+  </div>
 
-    <div class="faq-item">
-      <h4>كم يستغرق العمل؟</h4>
+  <div class="faq-item">
+    <div class="faq-question">كم يستغرق العمل؟</div>
+    <div class="faq-answer">
       <p>CGI Video: بين 4–7 أيام حسب حجم المشروع</p>
       <p>3D Video Animation: بين 6–12 يوم</p>
       <p>قد تزيد المدة في الحالات التالية:</p>
       <p>1- إذا تغيّر جزء كبير من الفكرة</p>
-      <p>2- إذا المشروع يحتوي محاكاة (سوائل، نار، دخان…)</p>
+      <p>2- إذا المشروع يحتوي محاكاة</p>
       <p>3- إذا مدة الفيديو أطول من المعتاد</p>
       <p>CGI: من 15–30 ثانية</p>
       <p>3D Animation: من 10–60 ثانية</p>
     </div>
-  </section>
+  </div>
+
+</section>
+
 
   <!-- CONTACT -->
   <section id="contact">
@@ -405,12 +430,20 @@
   <a class="whatsapp-btn" href="https://wa.me/201006488313" target="_blank">
     <img src="whatsapp.png" alt="WhatsApp">
   </a>
-
-  <script>
+ 
+ <script>
     document.querySelectorAll('.top-menu a').forEach(link => {
       link.addEventListener('click', e => {
         e.preventDefault();
         document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+
+  <script>
+    document.querySelectorAll(".faq-item").forEach(item => {
+      item.addEventListener("click", () => {
+        item.classList.toggle("active");
       });
     });
   </script>
