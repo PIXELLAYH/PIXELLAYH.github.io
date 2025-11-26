@@ -17,7 +17,7 @@
     body {
       margin: 0;
       font-family: 'Tajawal', sans-serif;
-      background: #0f0f0f;
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a, #0c0c0c);
       color: #fff;
       line-height: 1.7;
     }
@@ -37,7 +37,14 @@
       height: 48px;
     }
 
-    h1, h2 {
+    .menu a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      margin-right: 20px;
+    }
+
+    h1, h2, h3 {
       margin: 0 0 12px;
     }
 
@@ -78,16 +85,40 @@
       margin-top: 60px;
     }
 
-    .features {
-      display: grid;
-      gap: 20px;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    /* النقاط الجديدة بدون صناديق */
+    .point {
+      margin-bottom: 40px;
     }
 
-    .feature-box {
-      background: rgba(255,255,255,0.05);
-      padding: 20px;
+    .point img {
+      width: 100%;
+      height: 300px;
+      background:#333;
       border-radius: 12px;
+      margin-top: 12px;
+      object-fit: cover;
+    }
+
+    /* قسم الأعمال */
+    .works {
+      margin-top: 80px;
+    }
+
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .video-box {
+      background: rgba(255,255,255,0.05);
+      padding: 15px;
+      border-radius: 12px;
+    }
+
+    .video-box video {
+      width: 100%;
+      border-radius: 10px;
     }
 
     footer {
@@ -101,8 +132,12 @@
 </head>
 <body>
 
+  <!-- HEADER -->
   <header>
     <img src="your-logo.png" alt="Logo">
+    <div class="menu">
+      <a href="https://yourmainwebsite.com">الرئيسية</a>
+    </div>
   </header>
 
   <!-- HERO -->
@@ -120,26 +155,71 @@
       مناسبة للمنتجات الجديدة، الإعلانات، والمتاجر الإلكترونية في السعودية والإمارات.
     </p>
 
-    <div class="features">
-      <div class="feature-box">
-        <h3>صور فائقة الواقعية</h3>
-        <p>نستخدم تقنيات إضاءة ومواد متقدمة لإظهار المنتج بشكل يخطف الأنظار.</p>
+    <!-- النقاط (بدون صناديق) -->
+    <div class="point">
+      <h3>صور فائقة الواقعية</h3>
+      <p>نستخدم تقنيات إضاءة ومواد متقدمة لإظهار المنتج بشكل يخطف الأنظار.</p>
+      <img src="" alt="image-placeholder">
+    </div>
+
+    <div class="point">
+      <h3>مناسبة للإعلانات والمتاجر</h3>
+      <p>مقاسات جاهزة للسوشيال ميديا، المتاجر الإلكترونية، والبنرات التسويقية.</p>
+      <img src="" alt="image-placeholder">
+    </div>
+
+    <div class="point">
+      <h3>توفير في الوقت والتكلفة</h3>
+      <p>بدون تصوير… بدون استوديو… بدون معدات. فقط البيانات ونبدأ الشغل.</p>
+      <img src="" alt="image-placeholder">
+    </div>
+
+    <div class="point">
+      <h3>تعديلات غير محدودة</h3>
+      <p>تسليم بأكثر من زاوية، وخلفيات مختلفة، ونسخ مخصصة للتسويق.</p>
+      <img src="" alt="image-placeholder">
+    </div>
+  </div>
+
+  <!-- WORKS SECTION -->
+  <div class="container works">
+    <h2 style="text-align:center;">آخر أعمالنا في 3D Video Animation</h2>
+    <p style="color:#ccc; text-align:center; margin-bottom:40px;">
+      مجموعة من أحدث الفيديوهات الاحترافية التي نفذناها لعملائنا في السعودية والخليج.
+    </p>
+
+    <div class="videos-grid">
+      
+      <div class="video-box">
+        <video controls src=""></video>
+        <p>وصف بسيط للفيديو الأول.</p>
       </div>
 
-      <div class="feature-box">
-        <h3>مناسبة للإعلانات والمتاجر</h3>
-        <p>مقاسات جاهزة للسوشيال ميديا، المتاجر الإلكترونية، والبنرات التسويقية.</p>
+      <div class="video-box">
+        <video controls src=""></video>
+        <p>وصف بسيط للفيديو الثاني.</p>
       </div>
 
-      <div class="feature-box">
-        <h3>توفير في الوقت والتكلفة</h3>
-        <p>بدون تصوير… بدون استوديو… بدون معدات. فقط البيانات ونبدأ الشغل.</p>
+      <div class="video-box">
+        <video controls src=""></video>
+        <p>وصف بسيط للفيديو الثالث.</p>
       </div>
 
-      <div class="feature-box">
-        <h3>تعديلات غير محدودة</h3>
-        <p>تسليم بأكثر من زاوية، وخلفيات مختلفة، ونسخ مخصصة للتسويق.</p>
+      <div class="video-box">
+        <video controls src=""></video>
+        <p>وصف بسيط للفيديو الرابع.</p>
       </div>
+
+      <div class="video-box">
+        <video controls src=""></video>
+        <p>وصف بسيط للفيديو الخامس.</p>
+      </div>
+
+      <div class="video-box">
+        <video controls src=""></video>
+        <p>وصف بسيط للفيديو السادس.</p>
+      </div>
+
     </div>
   </div>
 
