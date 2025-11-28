@@ -196,65 +196,72 @@
       أبرز أعمالنا
     </h2>
 
-    <div class="portfolio-grid">
+    <!-- Portfolio Section -->
+<section id="portfolio" class="portfolio-section" style="padding: 80px 0; background:#ffffff;">
+  <div class="container">
+    <h2 style="text-align:center; font-size:32px; margin-bottom:40px;">
+      أبرز أعمالنا
+    </h2>
 
-      <!-- Project Item -->
-      <div class="portfolio-item">
-        <img src="images/work1.jpg" alt="Work 1">
-      </div>
+    <div class="masonry">
 
-      <!-- Project Item -->
-      <div class="portfolio-item">
-        <img src="images/work2.jpg" alt="Work 2">
-      </div>
-
-      <!-- Project Item -->
-      <div class="portfolio-item">
-        <img src="images/work3.jpg" alt="Work 3">
-      </div>
-
-      <!-- Project Item -->
-      <div class="portfolio-item">
-        <img src="images/work4.jpg" alt="Work 4">
-      </div>
-
-      <!-- Project Item -->
-      <div class="portfolio-item">
-        <img src="images/work5.jpg" alt="Work 5">
-      </div>
-
-      <!-- Project Item -->
-      <div class="portfolio-item">
-        <img src="images/work6.jpg" alt="Work 6">
-      </div>
+      <div class="masonry-item"><img src="images/work1.jpg" alt=""></div>
+      <div class="masonry-item tall"><img src="images/work2.jpg" alt=""></div>
+      <div class="masonry-item wide"><img src="images/work3.jpg" alt=""></div>
+      <div class="masonry-item"><img src="images/work4.jpg" alt=""></div>
+      <div class="masonry-item tall"><img src="images/work5.jpg" alt=""></div>
+      <div class="masonry-item"><img src="images/work6.jpg" alt=""></div>
+      <div class="masonry-item wide"><img src="images/work7.jpg" alt=""></div>
+      <div class="masonry-item"><img src="images/work8.jpg" alt=""></div>
+      <div class="masonry-item tall"><img src="images/work9.jpg" alt=""></div>
+      <div class="masonry-item"><img src="images/work10.jpg" alt=""></div>
 
     </div>
   </div>
 </section>
 
-<!-- Portfolio Styles -->
 <style>
-  .portfolio-grid {
+  .masonry {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-auto-rows: 200px;
+    grid-auto-flow: dense;
+    gap: 18px;
   }
 
-  .portfolio-item {
+  .masonry-item {
+    position: relative;
     overflow: hidden;
     border-radius: 12px;
-    position: relative;
   }
 
-  .portfolio-item img {
+  .masonry-item.wide {
+    grid-column: span 2;
+  }
+
+  .masonry-item.tall {
+    grid-row: span 2;
+  }
+
+  .masonry-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform .4s ease;
+    transition: 0.4s ease;
   }
 
-  .portfolio-item:hover img {
-    transform: scale(1.07);
+  .masonry-item:hover img {
+    transform: scale(1.08);
+  }
+
+  @media(max-width: 600px) {
+    .masonry {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 150px;
+    }
+    .masonry-item.wide {
+      grid-column: span 1;
+    }
   }
 </style>
 
