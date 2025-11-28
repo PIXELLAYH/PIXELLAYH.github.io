@@ -34,6 +34,44 @@
       top: 0;
       backdrop-filter: blur(8px);
     }
+/* الخلفية عند فتح الصورة */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(8px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* الصورة الكبيرة */
+.lightbox-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.2);
+  animation: pop 0.25s ease;
+}
+
+/* زر الإغلاق */
+.lightbox-close {
+  position: fixed;
+  top: 30px;
+  right: 40px;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 10000;
+  font-weight: bold;
+}
+
+/* حركة بسيطة */
+@keyframes pop {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
 
     .menu {
       display: flex;
@@ -209,6 +247,11 @@
       <div class="masonry-item"><img src="imageswork8.png" alt=""></div>
       <div class="masonry-item tall"><img src="imageswork9.png" alt=""></div>
       <div class="masonry-item"><img src="imageswork10.png" alt=""></div>
+<!-- Lightbox -->
+<div class="lightbox-overlay" id="lightbox">
+  <span class="lightbox-close" id="closeLightbox">&times;</span>
+  <img id="lightbox-img" src="">
+</div>
 
     </div>
   </div>
@@ -271,6 +314,32 @@
   <footer>
     © 2026 — Studio CGI. جميع الحقوق محفوظة.
   </footer>
+<script>
+  const images = document.querySelectorAll(".masonry-item img");
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const closeBtn = document.getElementById("closeLightbox");
+
+  // فتح الصورة
+  images.forEach(img => {
+    img.addEventListener("click", () => {
+      lightboxImg.src = img.src; 
+      lightbox.style.display = "flex";
+    });
+  });
+
+  // إغلاق عند الضغط على X
+  closeBtn.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+
+  // إغلاق عند الضغط خارج الصورة
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      lightbox.style.display = "none";
+    }
+  });
+</script>
 
 </body>
 </html>
