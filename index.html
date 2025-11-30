@@ -32,6 +32,53 @@
       z-index: 20;
       background: linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0));
     }
+/* --- Dropdown Menu --- */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-btn {
+  color: #fff !important;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background: rgba(0,0,0,0.85);
+  padding: 12px 0;
+  border-radius: 10px;
+  width: 230px;
+  display: none;
+  flex-direction: column;
+  text-align: right;
+  backdrop-filter: blur(6px);
+}
+
+.dropdown-menu a {
+  color: #87bfff; /* أزرق لينكات */
+  padding: 12px 18px;
+  text-decoration: none;
+  transition: 0.2s;
+  font-size: 18px;
+}
+
+.dropdown-menu a:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+/* لجعل عناوين الخدمات قابلة للنقر */
+.service-text h3 {
+  cursor: pointer;
+  color: #005eff;
+  transition: 0.25s;
+}
+
+.service-text h3:hover {
+  text-decoration: underline;
+  color: #003eb3;
+}
+
 
     .logo img { height: 55px; width: auto; margin-left: 25px; }
 
@@ -231,12 +278,21 @@
   <!-- TOP BAR -->
   <div class="top-bar">
     <div class="logo"><img src="logo.png" alt="logo"></div>
-    <div class="top-menu">
-      <a href="#contact">تواصل معنا</a>
-      <a href="#services">الخدمات</a>
-      <a href="#story">قصتنا</a>
+<div class="top-menu">
+  <a href="#contact">تواصل معنا</a>
+
+  <div class="dropdown">
+    <a class="dropdown-btn">الخدمات ▾</a>
+
+    <div class="dropdown-menu">
+      <a href="https://pixellayh.github.io/cgi-vfx.html">CGI / المؤثرات البصرية</a>
+      <a href="https://pixellayh.github.io/3d-visualization.html">3D Video Animation</a>
+      <a href="https://pixellayh.github.io/3D%20Model%20Creation.html">3D Model Creation</a>
     </div>
   </div>
+
+  <a href="#story">قصتنا</a>
+</div>
 
   <!-- HERO -->
   <div class="hero">
@@ -447,6 +503,36 @@
       });
     });
   </script>
+
+<script>
+  const dropBtn = document.querySelector(".dropdown-btn");
+  const dropMenu = document.querySelector(".dropdown-menu");
+
+  dropBtn.addEventListener("click", () => {
+    dropMenu.style.display = dropMenu.style.display === "flex" ? "none" : "flex";
+  });
+
+  // اغلاق القائمة لو ضغط برة
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".dropdown")) {
+      dropMenu.style.display = "none";
+    }
+  });
+</script>
+
+<script>
+  document.querySelector("h3:contains('CGI')").onclick = () => {
+    window.location.href = "cgi.html";
+  };
+
+  document.querySelector("h3:contains('3d video animation')").onclick = () => {
+    window.location.href = "animation.html";
+  };
+
+  document.querySelector("h3:contains('3D Model Creation')").onclick = () => {
+    window.location.href = "models.html";
+  };
+</script>
 
 </body>
 </html>
