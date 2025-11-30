@@ -377,4 +377,16 @@
     const servicesMenu = document.getElementById('services-menu');
     const dropdown = document.getElementById('dropdown-services');
     servicesMenu.addEventListener('click', () => {
-      dropdown.style.display = dropdown.style.display === 'flex' ? '
+      dropdown.style.display = dropdown.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    // إخفاء القائمة عند الضغط خارجها
+    document.addEventListener('click', function(event) {
+      if (!servicesMenu.contains(event.target) && !dropdown.contains(event.target)) {
+        dropdown.style.display = 'none';
+      }
+    });
+  </script>
+
+</body>
+</html>
