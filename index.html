@@ -152,107 +152,140 @@
     /* زر الواتساب */
     .whatsapp-btn { position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px; border-radius: 50%; background: #25D366; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 20px rgba(0,0,0,0.25); z-index: 999; }
     .whatsapp-btn img { width: 35px; height: 35px; }
-    /* ===================== */
+/* ===================== */
 /* MOBILE RESPONSIVE FIX */
 /* ===================== */
 
 @media (max-width: 768px) {
 
-  /* TOP BAR */
+  /* ===== RESET SAFE ===== */
+  * {
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  /* ===== TOP BAR ===== */
   .top-bar {
-    padding: 15px 20px;
-    flex-wrap: wrap;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 10px 14px;
+    gap: 10px;
     justify-content: space-between;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0));
   }
 
   .logo img {
-    height: 45px;
-    margin-left: 0;
+    height: 42px;
+    margin: 0;
   }
 
   .top-menu {
-    gap: 12px;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .top-menu > a {
-    font-size: 16px;
+    font-size: 15px;
     padding: 4px 6px;
   }
 
-  /* HERO */
-  .hero-text {
-    font-size: 24px;
-    max-width: 90%;
-    line-height: 1.6;
+  /* ===== HERO VIDEO (NO CROP) ===== */
+  .hero {
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
   }
 
-  /* SECTIONS */
+  .hero video {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    object-fit: contain;
+    transform: none;
+  }
+
+  .hero-text {
+    font-size: 22px;
+    max-width: 92%;
+    line-height: 1.6;
+    padding: 0 10px;
+  }
+
+  /* ===== SECTIONS ===== */
   section {
-    padding: 60px 20px;
+    padding: 60px 18px;
   }
 
   h2 {
-    font-size: 26px;
+    font-size: 25px;
   }
 
-  /* CLIENT LOGOS */
+  /* ===== CLIENT LOGOS ===== */
   .logos {
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: 18px;
   }
 
   .logos img {
     width: 120px;
   }
 
-  /* SERVICES */
+  /* ===== SERVICES ===== */
   .service-row,
   .service-row.reverse {
     flex-direction: column;
     text-align: center;
-    gap: 30px;
-    margin-bottom: 80px;
+    gap: 28px;
+    margin-bottom: 70px;
   }
 
   .service-text h3 {
-    font-size: 24px;
+    font-size: 23px;
   }
 
   .service-text p {
-    font-size: 17px;
+    font-size: 16.5px;
     line-height: 1.7;
   }
 
   .service-img img {
     width: 100%;
+    border-radius: 12px;
   }
 
-  /* FAQ */
-  .faq-question {
-    font-size: 20px;
-  }
-
-  .faq-answer {
-    font-size: 17px;
-  }
-
-  /* NEW WORK VIDEO */
+  /* ===== NEW WORK VIDEO ===== */
   .new-section video {
     width: 100% !important;
   }
 
-  /* WHATSAPP BUTTON */
+  /* ===== FAQ ===== */
+  .faq-question {
+    font-size: 19px;
+  }
+
+  .faq-answer {
+    font-size: 16.5px;
+  }
+
+  /* ===== WHATSAPP ===== */
   .whatsapp-btn {
-    width: 52px;
-    height: 52px;
-    bottom: 20px;
-    right: 20px;
+    width: 50px;
+    height: 50px;
+    bottom: 18px;
+    right: 18px;
   }
 
   .whatsapp-btn img {
-    width: 28px;
-    height: 28px;
+    width: 26px;
+    height: 26px;
   }
 }
 
