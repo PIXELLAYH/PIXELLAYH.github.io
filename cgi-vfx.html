@@ -15,6 +15,10 @@
 
 
   <style>
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
     body {
       margin: 0;
       font-family: 'Tajawal', sans-serif;
@@ -98,12 +102,11 @@
       margin-bottom: 40px;
     }
 
- .point img {
-  width: auto;
+.point img {
+  width: 100%;
+  max-width: 100%;
   height: auto;
-  max-width: none;
-  max-height: none;
-  object-fit: unset;
+  display: block;
 }
 
 
@@ -136,6 +139,17 @@
       margin-top: 40px;
       background: rgba(255,255,255,0.03);
     }
+@media (max-width: 768px) {
+  header {
+    gap: 20px;
+    padding: 15px;
+  }
+
+  .menu a {
+    margin-right: 0;
+    font-size: 16px;
+  }
+}
   </style>
 </head>
 <body>
